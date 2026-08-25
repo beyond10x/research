@@ -1,0 +1,2092 @@
+{
+ "tool_motifs": [
+  {
+   "motif": "Bash* > Write",
+   "count": 394,
+   "sessions": 49
+  },
+  {
+   "motif": "Write > Bash*",
+   "count": 352,
+   "sessions": 46
+  },
+  {
+   "motif": "Edit > Bash*",
+   "count": 336,
+   "sessions": 40
+  },
+  {
+   "motif": "Bash* > Read",
+   "count": 265,
+   "sessions": 40
+  },
+  {
+   "motif": "Bash* > Write > Bash*",
+   "count": 247,
+   "sessions": 40
+  },
+  {
+   "motif": "Bash* > Edit",
+   "count": 279,
+   "sessions": 39
+  },
+  {
+   "motif": "Write > Bash",
+   "count": 149,
+   "sessions": 38
+  },
+  {
+   "motif": "Bash > Edit",
+   "count": 126,
+   "sessions": 37
+  },
+  {
+   "motif": "Edit > Bash",
+   "count": 139,
+   "sessions": 35
+  },
+  {
+   "motif": "Bash > Write",
+   "count": 114,
+   "sessions": 35
+  },
+  {
+   "motif": "Edit* > Bash*",
+   "count": 207,
+   "sessions": 34
+  },
+  {
+   "motif": "Read > Bash*",
+   "count": 180,
+   "sessions": 34
+  },
+  {
+   "motif": "Bash* > Edit*",
+   "count": 189,
+   "sessions": 33
+  },
+  {
+   "motif": "Bash* > Edit > Bash*",
+   "count": 181,
+   "sessions": 33
+  },
+  {
+   "motif": "Bash > Read",
+   "count": 128,
+   "sessions": 32
+  },
+  {
+   "motif": "Edit* > Bash",
+   "count": 125,
+   "sessions": 31
+  },
+  {
+   "motif": "Bash > Edit > Bash*",
+   "count": 84,
+   "sessions": 31
+  },
+  {
+   "motif": "Bash* > Write > Bash",
+   "count": 80,
+   "sessions": 31
+  },
+  {
+   "motif": "Bash* > ToolSearch",
+   "count": 68,
+   "sessions": 31
+  },
+  {
+   "motif": "Bash* > Read > Bash*",
+   "count": 121,
+   "sessions": 30
+  },
+  {
+   "motif": "Write > Bash* > Write",
+   "count": 105,
+   "sessions": 30
+  },
+  {
+   "motif": "Agent > Bash*",
+   "count": 140,
+   "sessions": 29
+  },
+  {
+   "motif": "Bash* > Edit* > Bash*",
+   "count": 116,
+   "sessions": 29
+  },
+  {
+   "motif": "Agent* > Bash*",
+   "count": 80,
+   "sessions": 28
+  },
+  {
+   "motif": "Bash* > Agent*",
+   "count": 79,
+   "sessions": 28
+  }
+ ],
+ "shell_motifs": [
+  {
+   "motif": "python3 > import",
+   "count": 1626,
+   "sessions": 58
+  },
+  {
+   "motif": "git status > git log",
+   "count": 124,
+   "sessions": 40
+  },
+  {
+   "motif": "git log > git status",
+   "count": 143,
+   "sessions": 39
+  },
+  {
+   "motif": "git add > git commit",
+   "count": 551,
+   "sessions": 34
+  },
+  {
+   "motif": "git add > git status",
+   "count": 77,
+   "sessions": 34
+  },
+  {
+   "motif": "git status > python3",
+   "count": 61,
+   "sessions": 33
+  },
+  {
+   "motif": "git status > git diff",
+   "count": 65,
+   "sessions": 30
+  },
+  {
+   "motif": "python3* > import",
+   "count": 212,
+   "sessions": 29
+  },
+  {
+   "motif": "python3 > git add",
+   "count": 143,
+   "sessions": 29
+  },
+  {
+   "motif": "git commit > git log",
+   "count": 144,
+   "sessions": 28
+  },
+  {
+   "motif": "git status > git add",
+   "count": 70,
+   "sessions": 28
+  },
+  {
+   "motif": "git diff > git status",
+   "count": 38,
+   "sessions": 28
+  },
+  {
+   "motif": "\" > python3",
+   "count": 135,
+   "sessions": 26
+  },
+  {
+   "motif": "python3 > git status",
+   "count": 54,
+   "sessions": 26
+  },
+  {
+   "motif": "import > d=json.load(sys.stdin)",
+   "count": 142,
+   "sessions": 25
+  },
+  {
+   "motif": "python3 > import > d=json.load(sys.stdin)",
+   "count": 140,
+   "sessions": 25
+  },
+  {
+   "motif": "git log > git add",
+   "count": 50,
+   "sessions": 23
+  },
+  {
+   "motif": "git log > git diff",
+   "count": 32,
+   "sessions": 23
+  },
+  {
+   "motif": "timeout > python3",
+   "count": 265,
+   "sessions": 22
+  },
+  {
+   "motif": "assert > s",
+   "count": 225,
+   "sessions": 21
+  },
+  {
+   "motif": "python3 > timeout",
+   "count": 151,
+   "sessions": 21
+  },
+  {
+   "motif": "git add > git commit > git log",
+   "count": 119,
+   "sessions": 21
+  },
+  {
+   "motif": "{ > }",
+   "count": 51,
+   "sessions": 21
+  },
+  {
+   "motif": "import > p",
+   "count": 640,
+   "sessions": 20
+  },
+  {
+   "motif": "p > s",
+   "count": 393,
+   "sessions": 20
+  }
+ ],
+ "shell_verbs_top": [
+  [
+   "python3",
+   7903
+  ],
+  [
+   "timeout",
+   3000
+  ],
+  [
+   "#",
+   2219
+  ],
+  [
+   "import",
+   2127
+  ],
+  [
+   "!",
+   1801
+  ],
+  [
+   "}",
+   1763
+  ],
+  [
+   "s",
+   1457
+  ],
+  [
+   "let",
+   1309
+  ],
+  [
+   "git status",
+   1263
+  ],
+  [
+   "git log",
+   1250
+  ],
+  [
+   "cargo test",
+   1209
+  ],
+  [
+   "fluxplane-plugin",
+   1152
+  ],
+  [
+   "the",
+   1004
+  ],
+  [
+   "fn",
+   973
+  ],
+  [
+   "git add",
+   956
+  ],
+  [
+   "pub",
+   954
+  ],
+  [
+   "p",
+   929
+  ],
+  [
+   "bash",
+   897
+  ],
+  [
+   "t",
+   887
+  ],
+  [
+   "\"",
+   884
+  ],
+  [
+   "git diff",
+   730
+  ],
+  [
+   "assert",
+   703
+  ],
+  [
+   "git commit",
+   702
+  ],
+  [
+   "use",
+   691
+  ],
+  [
+   "The",
+   650
+  ],
+  [
+   "curl",
+   578
+  ],
+  [
+   ")",
+   567
+  ],
+  [
+   "s=open(p).read()",
+   505
+  ],
+  [
+   "##",
+   499
+  ],
+  [
+   "cargo clippy",
+   497
+  ]
+ ],
+ "op_motifs_per_turn": [
+  {
+   "motif": "inspect > edit",
+   "count": 595,
+   "sessions": 64
+  },
+  {
+   "motif": "inspect* > edit",
+   "count": 548,
+   "sessions": 61
+  },
+  {
+   "motif": "edit > inspect",
+   "count": 508,
+   "sessions": 61
+  },
+  {
+   "motif": "edit > inspect*",
+   "count": 442,
+   "sessions": 59
+  },
+  {
+   "motif": "inspect > edit*",
+   "count": 330,
+   "sessions": 55
+  },
+  {
+   "motif": "edit > run_script",
+   "count": 505,
+   "sessions": 53
+  },
+  {
+   "motif": "edit* > inspect",
+   "count": 261,
+   "sessions": 53
+  },
+  {
+   "motif": "inspect* > edit*",
+   "count": 299,
+   "sessions": 50
+  },
+  {
+   "motif": "run_script > edit",
+   "count": 389,
+   "sessions": 49
+  },
+  {
+   "motif": "inspect > run_script",
+   "count": 586,
+   "sessions": 47
+  },
+  {
+   "motif": "edit* > run_script",
+   "count": 198,
+   "sessions": 47
+  },
+  {
+   "motif": "run_script > inspect",
+   "count": 491,
+   "sessions": 46
+  },
+  {
+   "motif": "other_cmd > inspect",
+   "count": 190,
+   "sessions": 46
+  },
+  {
+   "motif": "edit* > inspect*",
+   "count": 157,
+   "sessions": 45
+  },
+  {
+   "motif": "inspect > edit > inspect",
+   "count": 137,
+   "sessions": 45
+  },
+  {
+   "motif": "edit > inspect > edit",
+   "count": 163,
+   "sessions": 44
+  },
+  {
+   "motif": "inspect* > run_script",
+   "count": 384,
+   "sessions": 43
+  },
+  {
+   "motif": "run_script > inspect*",
+   "count": 332,
+   "sessions": 43
+  },
+  {
+   "motif": "inspect* > edit > inspect*",
+   "count": 159,
+   "sessions": 42
+  },
+  {
+   "motif": "inspect > edit > run_script",
+   "count": 90,
+   "sessions": 42
+  },
+  {
+   "motif": "run_script* > inspect",
+   "count": 268,
+   "sessions": 41
+  },
+  {
+   "motif": "edit* > inspect > edit",
+   "count": 80,
+   "sessions": 41
+  },
+  {
+   "motif": "vcs_read > inspect",
+   "count": 145,
+   "sessions": 40
+  },
+  {
+   "motif": "vcs_read > vcs_write",
+   "count": 112,
+   "sessions": 40
+  },
+  {
+   "motif": "inspect* > edit > inspect",
+   "count": 112,
+   "sessions": 40
+  }
+ ],
+ "op_motifs_per_session": [
+  {
+   "motif": "inspect > edit > inspect",
+   "count": 141,
+   "sessions": 46
+  },
+  {
+   "motif": "edit > inspect > edit",
+   "count": 172,
+   "sessions": 45
+  },
+  {
+   "motif": "edit* > inspect > edit",
+   "count": 87,
+   "sessions": 44
+  },
+  {
+   "motif": "inspect* > edit > inspect*",
+   "count": 166,
+   "sessions": 43
+  },
+  {
+   "motif": "inspect > edit > run_script",
+   "count": 93,
+   "sessions": 42
+  },
+  {
+   "motif": "inspect* > edit > inspect",
+   "count": 115,
+   "sessions": 40
+  },
+  {
+   "motif": "edit > inspect* > edit",
+   "count": 151,
+   "sessions": 37
+  },
+  {
+   "motif": "run_script > edit > run_script",
+   "count": 125,
+   "sessions": 35
+  },
+  {
+   "motif": "inspect > edit > inspect*",
+   "count": 111,
+   "sessions": 35
+  },
+  {
+   "motif": "edit* > inspect > edit*",
+   "count": 95,
+   "sessions": 35
+  },
+  {
+   "motif": "inspect* > edit* > inspect",
+   "count": 87,
+   "sessions": 34
+  },
+  {
+   "motif": "edit > run_script > inspect",
+   "count": 75,
+   "sessions": 34
+  },
+  {
+   "motif": "edit > run_script > edit",
+   "count": 134,
+   "sessions": 33
+  },
+  {
+   "motif": "inspect > edit* > inspect",
+   "count": 100,
+   "sessions": 33
+  },
+  {
+   "motif": "edit > inspect > edit*",
+   "count": 80,
+   "sessions": 33
+  },
+  {
+   "motif": "edit > inspect* > edit*",
+   "count": 70,
+   "sessions": 33
+  },
+  {
+   "motif": "run_script > inspect > run_script",
+   "count": 183,
+   "sessions": 32
+  },
+  {
+   "motif": "inspect > run_script > inspect",
+   "count": 168,
+   "sessions": 32
+  },
+  {
+   "motif": "inspect* > edit > run_script",
+   "count": 82,
+   "sessions": 32
+  },
+  {
+   "motif": "edit > inspect > run_script",
+   "count": 83,
+   "sessions": 31
+  },
+  {
+   "motif": "run_script* > inspect > run_script",
+   "count": 108,
+   "sessions": 30
+  },
+  {
+   "motif": "run_script > inspect* > run_script",
+   "count": 105,
+   "sessions": 28
+  },
+  {
+   "motif": "inspect > run_script > inspect*",
+   "count": 85,
+   "sessions": 28
+  },
+  {
+   "motif": "run_script > inspect* > edit",
+   "count": 81,
+   "sessions": 28
+  },
+  {
+   "motif": "run_script > inspect > edit",
+   "count": 78,
+   "sessions": 28
+  }
+ ],
+ "op_frequency": [
+  [
+   "inspect",
+   9708
+  ],
+  [
+   "edit",
+   6595
+  ],
+  [
+   "run_script",
+   6130
+  ],
+  [
+   "other_cmd",
+   1875
+  ],
+  [
+   "vcs_read",
+   1610
+  ],
+  [
+   "agent_cli",
+   1303
+  ],
+  [
+   "vcs_write",
+   1132
+  ],
+  [
+   "delegate",
+   1101
+  ],
+  [
+   "build",
+   707
+  ],
+  [
+   "test",
+   699
+  ],
+  [
+   "fs_mutate",
+   586
+  ],
+  [
+   "infra",
+   562
+  ],
+  [
+   "forge",
+   237
+  ],
+  [
+   "net",
+   205
+  ],
+  [
+   "other_tool",
+   193
+  ],
+  [
+   "skill",
+   190
+  ],
+  [
+   "taskrunner",
+   127
+  ],
+  [
+   "web",
+   71
+  ],
+  [
+   "ask_human",
+   59
+  ],
+  [
+   "deps",
+   30
+  ],
+  [
+   "plan",
+   30
+  ],
+  [
+   "lint",
+   7
+  ],
+  [
+   "query",
+   4
+  ],
+  [
+   "report",
+   3
+  ],
+  [
+   "comms",
+   1
+  ]
+ ],
+ "intent_motifs": [
+  {
+   "motif": "meta_process > initiate_task",
+   "count": 52,
+   "sessions": 38
+  },
+  {
+   "motif": "initiate_task > approve_proceed",
+   "count": 49,
+   "sessions": 35
+  },
+  {
+   "motif": "initiate_task > refine_scope",
+   "count": 41,
+   "sessions": 28
+  },
+  {
+   "motif": "initiate_task > initiate_task",
+   "count": 53,
+   "sessions": 24
+  },
+  {
+   "motif": "housekeeping > initiate_task",
+   "count": 30,
+   "sessions": 23
+  },
+  {
+   "motif": "refine_scope > initiate_task",
+   "count": 29,
+   "sessions": 21
+  },
+  {
+   "motif": "initiate_task > correct_error",
+   "count": 27,
+   "sessions": 21
+  },
+  {
+   "motif": "approve_proceed > initiate_task",
+   "count": 32,
+   "sessions": 19
+  },
+  {
+   "motif": "ask_question > initiate_task",
+   "count": 23,
+   "sessions": 17
+  },
+  {
+   "motif": "correct_error > initiate_task",
+   "count": 20,
+   "sessions": 17
+  },
+  {
+   "motif": "approve_proceed > approve_proceed",
+   "count": 25,
+   "sessions": 16
+  },
+  {
+   "motif": "initiate_task > supply_info",
+   "count": 19,
+   "sessions": 15
+  },
+  {
+   "motif": "approve_proceed > refine_scope",
+   "count": 18,
+   "sessions": 15
+  },
+  {
+   "motif": "refine_scope > refine_scope",
+   "count": 19,
+   "sessions": 14
+  },
+  {
+   "motif": "initiate_task > meta_process",
+   "count": 18,
+   "sessions": 14
+  },
+  {
+   "motif": "approve_proceed > housekeeping",
+   "count": 17,
+   "sessions": 14
+  },
+  {
+   "motif": "initiate_task > housekeeping",
+   "count": 21,
+   "sessions": 13
+  },
+  {
+   "motif": "supply_info > initiate_task",
+   "count": 19,
+   "sessions": 13
+  },
+  {
+   "motif": "initiate_task > ask_question",
+   "count": 19,
+   "sessions": 13
+  },
+  {
+   "motif": "ask_question > refine_scope",
+   "count": 16,
+   "sessions": 13
+  },
+  {
+   "motif": "correct_error > approve_proceed",
+   "count": 19,
+   "sessions": 12
+  },
+  {
+   "motif": "correct_error > correct_error",
+   "count": 18,
+   "sessions": 12
+  },
+  {
+   "motif": "approve_proceed > supply_info",
+   "count": 16,
+   "sessions": 12
+  },
+  {
+   "motif": "supply_info > ask_question",
+   "count": 15,
+   "sessions": 12
+  },
+  {
+   "motif": "initiate_task > reject_redirect",
+   "count": 15,
+   "sessions": 12
+  }
+ ],
+ "trigger_procedures": [
+  {
+   "intent": "initiate_task",
+   "n": 324,
+   "signature": "(no tools)",
+   "count": 24,
+   "share": 0.074
+  },
+  {
+   "intent": "initiate_task",
+   "n": 324,
+   "signature": "inspect > edit > inspect*",
+   "count": 9,
+   "share": 0.028
+  },
+  {
+   "intent": "approve_proceed",
+   "n": 190,
+   "signature": "(no tools)",
+   "count": 6,
+   "share": 0.032
+  },
+  {
+   "intent": "approve_proceed",
+   "n": 190,
+   "signature": "inspect* > edit > inspect*",
+   "count": 4,
+   "share": 0.021
+  },
+  {
+   "intent": "refine_scope",
+   "n": 145,
+   "signature": "(no tools)",
+   "count": 9,
+   "share": 0.062
+  },
+  {
+   "intent": "refine_scope",
+   "n": 145,
+   "signature": "edit",
+   "count": 5,
+   "share": 0.034
+  },
+  {
+   "intent": "meta_process",
+   "n": 136,
+   "signature": "(no tools)",
+   "count": 101,
+   "share": 0.743
+  },
+  {
+   "intent": "meta_process",
+   "n": 136,
+   "signature": "ask_human > inspect > agent_cli*",
+   "count": 1,
+   "share": 0.007
+  },
+  {
+   "intent": "ask_question",
+   "n": 130,
+   "signature": "(no tools)",
+   "count": 38,
+   "share": 0.292
+  },
+  {
+   "intent": "ask_question",
+   "n": 130,
+   "signature": "inspect*",
+   "count": 7,
+   "share": 0.054
+  },
+  {
+   "intent": "correct_error",
+   "n": 123,
+   "signature": "(no tools)",
+   "count": 8,
+   "share": 0.065
+  },
+  {
+   "intent": "correct_error",
+   "n": 123,
+   "signature": "inspect > edit > run_script",
+   "count": 4,
+   "share": 0.033
+  },
+  {
+   "intent": "supply_info",
+   "n": 121,
+   "signature": "(no tools)",
+   "count": 4,
+   "share": 0.033
+  },
+  {
+   "intent": "supply_info",
+   "n": 121,
+   "signature": "edit > inspect* > fs_mutate",
+   "count": 2,
+   "share": 0.017
+  },
+  {
+   "intent": "housekeeping",
+   "n": 101,
+   "signature": "vcs_read",
+   "count": 5,
+   "share": 0.05
+  },
+  {
+   "intent": "housekeeping",
+   "n": 101,
+   "signature": "vcs_read > edit > vcs_read",
+   "count": 3,
+   "share": 0.03
+  },
+  {
+   "intent": "resume_continue",
+   "n": 70,
+   "signature": "(no tools)",
+   "count": 5,
+   "share": 0.071
+  },
+  {
+   "intent": "resume_continue",
+   "n": 70,
+   "signature": "inspect > edit > inspect",
+   "count": 2,
+   "share": 0.029
+  },
+  {
+   "intent": "request_status",
+   "n": 67,
+   "signature": "(no tools)",
+   "count": 18,
+   "share": 0.269
+  },
+  {
+   "intent": "request_status",
+   "n": 67,
+   "signature": "edit",
+   "count": 5,
+   "share": 0.075
+  },
+  {
+   "intent": "reject_redirect",
+   "n": 56,
+   "signature": "(no tools)",
+   "count": 3,
+   "share": 0.054
+  },
+  {
+   "intent": "reject_redirect",
+   "n": 56,
+   "signature": "edit*",
+   "count": 2,
+   "share": 0.036
+  },
+  {
+   "intent": "request_verification",
+   "n": 54,
+   "signature": "(no tools)",
+   "count": 4,
+   "share": 0.074
+  },
+  {
+   "intent": "request_verification",
+   "n": 54,
+   "signature": "edit* > inspect* > edit*",
+   "count": 2,
+   "share": 0.037
+  },
+  {
+   "intent": "delegate_parallel",
+   "n": 39,
+   "signature": "delegate*",
+   "count": 5,
+   "share": 0.128
+  },
+  {
+   "intent": "delegate_parallel",
+   "n": 39,
+   "signature": "inspect > agent_cli > inspect",
+   "count": 1,
+   "share": 0.026
+  },
+  {
+   "intent": "interrupt_abort",
+   "n": 9,
+   "signature": "(no tools)",
+   "count": 2,
+   "share": 0.222
+  },
+  {
+   "intent": "interrupt_abort",
+   "n": 9,
+   "signature": "vcs_write > skill > edit",
+   "count": 1,
+   "share": 0.111
+  },
+  {
+   "intent": "social",
+   "n": 2,
+   "signature": "(no tools)",
+   "count": 2,
+   "share": 1.0
+  }
+ ],
+ "human_latency": {
+  "turns_measured": 1401,
+  "median_s": 121.5,
+  "mean_s": 588.8,
+  "p90_s": 1243.7,
+  "total_h": 229.1,
+  "share_of_session_wallclock": 0.34
+ },
+ "turn_shape": {
+  "turns": 1567,
+  "median_chars": 64,
+  "median_words": 11,
+  "share_under_10_words": 0.445,
+  "share_zero_tool_followup": 0.144,
+  "median_tools_triggered": 9,
+  "share_interrupting_agent": 0.014,
+  "by_source": {
+   "slash": 201,
+   "typed": 1275,
+   "queued": 91
+  }
+ },
+ "labels": {
+  "intent": {
+   "initiate_task": {
+    "n": 324,
+    "share": 0.207
+   },
+   "approve_proceed": {
+    "n": 190,
+    "share": 0.121
+   },
+   "refine_scope": {
+    "n": 145,
+    "share": 0.093
+   },
+   "meta_process": {
+    "n": 136,
+    "share": 0.087
+   },
+   "ask_question": {
+    "n": 130,
+    "share": 0.083
+   },
+   "correct_error": {
+    "n": 123,
+    "share": 0.078
+   },
+   "supply_info": {
+    "n": 121,
+    "share": 0.077
+   },
+   "housekeeping": {
+    "n": 101,
+    "share": 0.064
+   },
+   "resume_continue": {
+    "n": 70,
+    "share": 0.045
+   },
+   "request_status": {
+    "n": 67,
+    "share": 0.043
+   },
+   "reject_redirect": {
+    "n": 56,
+    "share": 0.036
+   },
+   "request_verification": {
+    "n": 54,
+    "share": 0.034
+   },
+   "delegate_parallel": {
+    "n": 39,
+    "share": 0.025
+   },
+   "interrupt_abort": {
+    "n": 9,
+    "share": 0.006
+   },
+   "social": {
+    "n": 2,
+    "share": 0.001
+   }
+  },
+  "task_kind": {
+   "planning_design": {
+    "n": 219,
+    "share": 0.14
+   },
+   "release_deploy": {
+    "n": 190,
+    "share": 0.121
+   },
+   "implement": {
+    "n": 182,
+    "share": 0.116
+   },
+   "meta_agent_config": {
+    "n": 140,
+    "share": 0.089
+   },
+   "config_env": {
+    "n": 134,
+    "share": 0.086
+   },
+   "debug": {
+    "n": 127,
+    "share": 0.081
+   },
+   "communication": {
+    "n": 107,
+    "share": 0.068
+   },
+   "other": {
+    "n": 106,
+    "share": 0.068
+   },
+   "research_explore": {
+    "n": 71,
+    "share": 0.045
+   },
+   "review": {
+    "n": 70,
+    "share": 0.045
+   },
+   "test": {
+    "n": 60,
+    "share": 0.038
+   },
+   "ops_incident": {
+    "n": 51,
+    "share": 0.033
+   },
+   "data_analysis": {
+    "n": 38,
+    "share": 0.024
+   },
+   "docs_write": {
+    "n": 37,
+    "share": 0.024
+   },
+   "refactor": {
+    "n": 33,
+    "share": 0.021
+   },
+   "housekeeping": {
+    "n": 2,
+    "share": 0.001
+   }
+  },
+  "motivation": {
+   "deliver_artifact": {
+    "n": 390,
+    "share": 0.249
+   },
+   "steer_quality": {
+    "n": 253,
+    "share": 0.161
+   },
+   "unblock_agent": {
+    "n": 221,
+    "share": 0.141
+   },
+   "verify_trust": {
+    "n": 183,
+    "share": 0.117
+   },
+   "save_cost_time": {
+    "n": 159,
+    "share": 0.101
+   },
+   "fix_agent_mistake": {
+    "n": 124,
+    "share": 0.079
+   },
+   "explore_options": {
+    "n": 77,
+    "share": 0.049
+   },
+   "enforce_standard": {
+    "n": 72,
+    "share": 0.046
+   },
+   "personal_preference": {
+    "n": 50,
+    "share": 0.032
+   },
+   "curiosity": {
+    "n": 38,
+    "share": 0.024
+   }
+  },
+  "sentiment": {
+   "neutral": {
+    "n": 734,
+    "share": 0.468
+   },
+   "terse_pressing": {
+    "n": 687,
+    "share": 0.438
+   },
+   "frustrated": {
+    "n": 83,
+    "share": 0.053
+   },
+   "positive": {
+    "n": 58,
+    "share": 0.037
+   },
+   "appreciative": {
+    "n": 5,
+    "share": 0.003
+   }
+  },
+  "novel_information": {
+   "none": {
+    "n": 660,
+    "share": 0.421
+   },
+   "goal": {
+    "n": 244,
+    "share": 0.156
+   },
+   "external_state": {
+    "n": 196,
+    "share": 0.125
+   },
+   "preference": {
+    "n": 174,
+    "share": 0.111
+   },
+   "judgment_call": {
+    "n": 164,
+    "share": 0.105
+   },
+   "domain_knowledge": {
+    "n": 129,
+    "share": 0.082
+   }
+  },
+  "replaceable_by": {
+   "human_only": {
+    "n": 687,
+    "share": 0.438
+   },
+   "ai_policy": {
+    "n": 363,
+    "share": 0.232
+   },
+   "deterministic_rule": {
+    "n": 306,
+    "share": 0.195
+   },
+   "ai_with_context": {
+    "n": 211,
+    "share": 0.135
+   }
+  },
+  "friction_source": {
+   "none": {
+    "n": 1056,
+    "share": 0.674
+   },
+   "agent_omission": {
+    "n": 278,
+    "share": 0.177
+   },
+   "agent_error": {
+    "n": 110,
+    "share": 0.07
+   },
+   "missing_context": {
+    "n": 54,
+    "share": 0.034
+   },
+   "tool_failure": {
+    "n": 49,
+    "share": 0.031
+   },
+   "ambiguous_spec": {
+    "n": 20,
+    "share": 0.013
+   }
+  },
+  "is_rework": {
+   "n": 313,
+   "share": 0.2
+  }
+ },
+ "rule_sketches_top": [
+  [
+   "context window near limit -> compact automatically",
+   6
+  ],
+  [
+   "context window near threshold -> run compaction automatically",
+   4
+  ],
+  [
+   "new unrelated task starting -> clear session context",
+   4
+  ],
+  [
+   "new unrelated task starts -> clear conversation context",
+   3
+  ],
+  [
+   "context window near threshold -> compact automatically",
+   2
+  ],
+  [
+   "session context stale or task finished -> clear conversation context",
+   2
+  ],
+  [
+   "new work session starts -> clear context",
+   2
+  ],
+  [
+   "context near limit -> compact automatically",
+   2
+  ],
+  [
+   "context stale or new task starting -> clear conversation history",
+   2
+  ],
+  [
+   "context stale or task finished -> clear conversation history",
+   2
+  ],
+  [
+   "new unrelated task starts -> clear context",
+   2
+  ],
+  [
+   "next wave plan presented -> approve implement/test/document/push",
+   2
+  ],
+  [
+   "new unrelated task starting -> clear conversation context",
+   2
+  ],
+  [
+   "session limit hit -> switch to an available model tier",
+   1
+  ],
+  [
+   "review findings produced -> fix all of them without asking",
+   1
+  ],
+  [
+   "context nearing limit -> compact the conversation",
+   1
+  ],
+  [
+   "needing a user decision -> offer concrete illustrative options",
+   1
+  ],
+  [
+   "phase implementation complete -> independent review, then report next roadmap item",
+   1
+  ],
+  [
+   "decision defaulted and unanswered -> proceed with stated default",
+   1
+  ],
+  [
+   "new unrelated task begins -> clear conversation context",
+   1
+  ],
+  [
+   "agent proposes next planned story -> start it without asking",
+   1
+  ],
+  [
+   "session limit reset with saved plan -> resume next step",
+   1
+  ],
+  [
+   "context window near limit -> compact transcript",
+   1
+  ],
+  [
+   "multi-commit feature work finished -> spawn independent read-only reviewers",
+   1
+  ],
+  [
+   "reviewer findings returned -> fix worthwhile ones, include pending reviewer",
+   1
+  ],
+  [
+   "workday start -> run /knowledge <user>",
+   1
+  ],
+  [
+   "scheduled morning tick -> run /refresh <user>",
+   1
+  ],
+  [
+   "after /refresh completes -> run /workday <user>",
+   1
+  ],
+  [
+   "after /workday completes -> run /brief <user>",
+   1
+  ],
+  [
+   "pipeline stage finished -> start next stage without pausing",
+   1
+  ],
+  [
+   "auth expired or absent -> trigger login flow automatically",
+   1
+  ],
+  [
+   "apply requested edits in user's working trees, never throwaway clone branches",
+   1
+  ],
+  [
+   "after each milestone -> emit per-repo rebrand status table unprompted",
+   1
+  ],
+  [
+   "scope or rule change -> broadcast it to all running sub-agents",
+   1
+  ],
+  [
+   "user asks state -> report per-repo clean/gate/pushed matrix with evidence",
+   1
+  ],
+  [
+   "never call a repo green without naming the gate command and exit code",
+   1
+  ],
+  [
+   "after submodule bump -> regenerate, rebuild, run full gate until exit 0",
+   1
+  ],
+  [
+   "agent ends turn without acting on instruction -> re-execute last instruction",
+   1
+  ],
+  [
+   "agent recommends one of several options -> proceed with the recommendation",
+   1
+  ],
+  [
+   "request times out -> auto-resume and report current state",
+   1
+  ]
+ ],
+ "intent_x_replaceable": {
+  "initiate_task": {
+   "human_only": 216,
+   "ai_with_context": 47,
+   "deterministic_rule": 40,
+   "ai_policy": 21
+  },
+  "approve_proceed": {
+   "ai_policy": 87,
+   "human_only": 68,
+   "deterministic_rule": 28,
+   "ai_with_context": 7
+  },
+  "refine_scope": {
+   "human_only": 102,
+   "ai_with_context": 32,
+   "ai_policy": 11
+  },
+  "meta_process": {
+   "human_only": 37,
+   "deterministic_rule": 84,
+   "ai_policy": 15
+  },
+  "ask_question": {
+   "ai_with_context": 73,
+   "ai_policy": 45,
+   "human_only": 11,
+   "deterministic_rule": 1
+  },
+  "correct_error": {
+   "human_only": 55,
+   "ai_policy": 46,
+   "ai_with_context": 16,
+   "deterministic_rule": 6
+  },
+  "supply_info": {
+   "human_only": 93,
+   "deterministic_rule": 16,
+   "ai_with_context": 9,
+   "ai_policy": 3
+  },
+  "housekeeping": {
+   "human_only": 35,
+   "deterministic_rule": 59,
+   "ai_with_context": 2,
+   "ai_policy": 5
+  },
+  "resume_continue": {
+   "ai_policy": 23,
+   "deterministic_rule": 44,
+   "ai_with_context": 1,
+   "human_only": 2
+  },
+  "request_status": {
+   "ai_policy": 45,
+   "deterministic_rule": 20,
+   "human_only": 1,
+   "ai_with_context": 1
+  },
+  "reject_redirect": {
+   "human_only": 38,
+   "ai_with_context": 10,
+   "ai_policy": 8
+  },
+  "request_verification": {
+   "ai_policy": 36,
+   "ai_with_context": 7,
+   "human_only": 5,
+   "deterministic_rule": 6
+  },
+  "delegate_parallel": {
+   "human_only": 18,
+   "ai_policy": 15,
+   "ai_with_context": 6
+  },
+  "interrupt_abort": {
+   "ai_policy": 3,
+   "human_only": 5,
+   "deterministic_rule": 1
+  },
+  "social": {
+   "human_only": 1,
+   "deterministic_rule": 1
+  }
+ },
+ "intent_by_phase": {
+  "opening": {
+   "initiate_task": 138,
+   "meta_process": 67,
+   "approve_proceed": 50,
+   "refine_scope": 48,
+   "ask_question": 45,
+   "supply_info": 44,
+   "correct_error": 25,
+   "request_status": 23
+  },
+  "middle": {
+   "initiate_task": 90,
+   "approve_proceed": 69,
+   "refine_scope": 50,
+   "correct_error": 48,
+   "ask_question": 45,
+   "housekeeping": 38,
+   "supply_info": 33,
+   "meta_process": 31
+  },
+  "closing": {
+   "initiate_task": 81,
+   "approve_proceed": 67,
+   "correct_error": 49,
+   "refine_scope": 46,
+   "supply_info": 43,
+   "ask_question": 40,
+   "housekeeping": 35,
+   "meta_process": 25
+  }
+ },
+ "approval_tax": {
+  "turns_carrying_no_new_information": 748,
+  "share_of_labelled_turns": 0.477,
+  "consecutive_runs": 355,
+  "longest_run": 9,
+  "median_run": 2
+ },
+ "session_labels": {
+  "n": 100,
+  "outcome": {
+   "success": 41,
+   "partial": 39,
+   "abandoned": 11,
+   "failed": 6,
+   "open_ended": 3
+  },
+  "archetype": {
+   "ops_investigation": 19,
+   "other": 17,
+   "agent_harness_tuning": 11,
+   "greenfield_scaffold": 10,
+   "refactor_sweep": 9,
+   "multi_agent_fanout": 7,
+   "review_and_gate": 7,
+   "backlog_grooming": 5,
+   "doc_or_report_write": 4,
+   "exploratory_chat": 3,
+   "release_cut": 3,
+   "ticket_to_pr": 2,
+   "research_brief": 2,
+   "bug_hunt_fix": 1
+  },
+  "automation_verdict": {
+   "auto_with_gates": 37,
+   "needs_human_judgment": 34,
+   "full_auto": 27,
+   "not_automatable": 2
+  },
+  "rework_share": {
+   "none": 47,
+   "low": 25,
+   "medium": 23,
+   "high": 5
+  },
+  "blockers_top": [
+   [
+    "repo-visibility and gh-pages publishing are irreversible acts needing approval",
+    1
+   ],
+   [
+    "commit/push/release gated by explicit-instruction policy",
+    1
+   ],
+   [
+    "story lifecycle transitions are project-state claims reserved for the operator",
+    1
+   ],
+   [
+    "semantic design choice (absent vs three-valued not-exists) had no test or spec to decide it",
+    1
+   ],
+   [
+    "one api error and 5 tool errors; 2 context compactions indicate unattended runs risk losing thread",
+    1
+   ],
+   [
+    "ambiguous initial spec (callback vs copy-paste token) needed human framing",
+    1
+   ],
+   [
+    "no commit/rebase autonomy under repo policy \u2014 git writes require explicit approval",
+    1
+   ],
+   [
+    "secret-scan before public release needs a human accept/reject gate, not just a tool run",
+    1
+   ],
+   [
+    "release publish job only executes on real tag push, so end-to-end path is unverified",
+    1
+   ],
+   [
+    "ci runner scheduling latency (macos-13) makes unattended completion time unbounded",
+    1
+   ],
+   [
+    "review-finding triage had no scored severity gate; the human arbitrated",
+    1
+   ],
+   [
+    "production tenant config write needs explicit authority; not safely unattended",
+    1
+   ],
+   [
+    "diagnosis rests on code reading with no runtime verification \u2014 agent itself flags this",
+    1
+   ],
+   [
+    "slack posting that contradicts two colleagues' conclusions requires human sign-off",
+    1
+   ],
+   [
+    "incident scope arrived as informal slack chatter, not a ticket with a spec",
+    1
+   ],
+   [
+    "brief generation encoded a wrong release-process model until a human corrected it",
+    1
+   ],
+   [
+    "interactive oauth/credential entry",
+    1
+   ],
+   [
+    "no task content in the session to automate",
+    1
+   ],
+   [
+    "github org rename and github app creation/transfer require owner auth in a web ui",
+    1
+   ],
+   [
+    "production secret rotation/copy needs credentials and an irreversible-action approval",
+    1
+   ],
+   [
+    "naming and branding decisions were unspecified until the human made them",
+    1
+   ],
+   [
+    "no pre-existing smoke/e2e gate to certify the new namespace before teardown",
+    1
+   ],
+   [
+    "cluster, vault, registry and dns access outside the repo",
+    1
+   ],
+   [
+    "agent stalled twice and needed human nudges ('keep going', 'sleeping again?')",
+    1
+   ],
+   [
+    "irreversible rm of build caches needs an approval checkpoint or dry-run default",
+    1
+   ]
+  ],
+  "step_verbs_top": [
+   [
+    "run",
+    68
+   ],
+   [
+    "write",
+    39
+   ],
+   [
+    "commit",
+    27
+   ],
+   [
+    "read",
+    25
+   ],
+   [
+    "fan",
+    19
+   ],
+   [
+    "add",
+    15
+   ],
+   [
+    "load",
+    15
+   ],
+   [
+    "create",
+    13
+   ],
+   [
+    "report",
+    13
+   ],
+   [
+    "post",
+    13
+   ],
+   [
+    "implement",
+    12
+   ],
+   [
+    "inspect",
+    12
+   ],
+   [
+    "emit",
+    12
+   ],
+   [
+    "spawn",
+    10
+   ],
+   [
+    "verify",
+    10
+   ],
+   [
+    "draft",
+    10
+   ],
+   [
+    "fetch",
+    9
+   ],
+   [
+    "extract",
+    8
+   ],
+   [
+    "apply",
+    7
+   ],
+   [
+    "query",
+    7
+   ],
+   [
+    "send",
+    7
+   ],
+   [
+    "check",
+    7
+   ],
+   [
+    "patch",
+    6
+   ],
+   [
+    "cross-check",
+    6
+   ],
+   [
+    "invoke",
+    6
+   ]
+  ]
+ },
+ "outcome_by_human_turns": {
+  "0 (headless)": {
+   "open_ended": 2,
+   "success": 10,
+   "failed": 6
+  },
+  "1-3": {
+   "open_ended": 1,
+   "abandoned": 8,
+   "success": 17
+  },
+  "11-30": {
+   "partial": 13,
+   "success": 6,
+   "abandoned": 2
+  },
+  "31+": {
+   "success": 2,
+   "partial": 17
+  },
+  "4-10": {
+   "partial": 9,
+   "success": 6,
+   "abandoned": 1
+  }
+ },
+ "archetype_table": {
+  "ops_investigation": {
+   "n": 19,
+   "cost_usd": 1778.83,
+   "verdicts": {
+    "needs_human_judgment": 8,
+    "auto_with_gates": 10,
+    "full_auto": 1
+   },
+   "outcomes": {
+    "partial": 11,
+    "success": 7,
+    "abandoned": 1
+   }
+  },
+  "other": {
+   "n": 17,
+   "cost_usd": 1663.1,
+   "verdicts": {
+    "not_automatable": 1,
+    "full_auto": 12,
+    "needs_human_judgment": 3,
+    "auto_with_gates": 1
+   },
+   "outcomes": {
+    "open_ended": 1,
+    "abandoned": 7,
+    "partial": 2,
+    "failed": 5,
+    "success": 2
+   }
+  },
+  "agent_harness_tuning": {
+   "n": 11,
+   "cost_usd": 1773.21,
+   "verdicts": {
+    "needs_human_judgment": 4,
+    "full_auto": 6,
+    "auto_with_gates": 1
+   },
+   "outcomes": {
+    "partial": 5,
+    "open_ended": 1,
+    "success": 4,
+    "failed": 1
+   }
+  },
+  "greenfield_scaffold": {
+   "n": 10,
+   "cost_usd": 1482.13,
+   "verdicts": {
+    "auto_with_gates": 7,
+    "needs_human_judgment": 3
+   },
+   "outcomes": {
+    "partial": 5,
+    "success": 5
+   }
+  },
+  "refactor_sweep": {
+   "n": 9,
+   "cost_usd": 741.95,
+   "verdicts": {
+    "needs_human_judgment": 5,
+    "auto_with_gates": 4
+   },
+   "outcomes": {
+    "success": 4,
+    "partial": 5
+   }
+  },
+  "multi_agent_fanout": {
+   "n": 7,
+   "cost_usd": 1594.89,
+   "verdicts": {
+    "needs_human_judgment": 4,
+    "auto_with_gates": 3
+   },
+   "outcomes": {
+    "partial": 3,
+    "success": 3,
+    "abandoned": 1
+   }
+  },
+  "review_and_gate": {
+   "n": 7,
+   "cost_usd": 339.62,
+   "verdicts": {
+    "full_auto": 1,
+    "auto_with_gates": 3,
+    "needs_human_judgment": 3
+   },
+   "outcomes": {
+    "success": 4,
+    "partial": 2,
+    "abandoned": 1
+   }
+  },
+  "backlog_grooming": {
+   "n": 5,
+   "cost_usd": 22.67,
+   "verdicts": {
+    "full_auto": 3,
+    "auto_with_gates": 1,
+    "needs_human_judgment": 1
+   },
+   "outcomes": {
+    "success": 4,
+    "partial": 1
+   }
+  },
+  "doc_or_report_write": {
+   "n": 4,
+   "cost_usd": 27.1,
+   "verdicts": {
+    "auto_with_gates": 2,
+    "full_auto": 1,
+    "not_automatable": 1
+   },
+   "outcomes": {
+    "success": 3,
+    "partial": 1
+   }
+  },
+  "exploratory_chat": {
+   "n": 3,
+   "cost_usd": 0.67,
+   "verdicts": {
+    "auto_with_gates": 1,
+    "full_auto": 2
+   },
+   "outcomes": {
+    "abandoned": 1,
+    "open_ended": 1,
+    "success": 1
+   }
+  },
+  "release_cut": {
+   "n": 3,
+   "cost_usd": 504.5,
+   "verdicts": {
+    "auto_with_gates": 1,
+    "needs_human_judgment": 2
+   },
+   "outcomes": {
+    "success": 1,
+    "partial": 2
+   }
+  },
+  "ticket_to_pr": {
+   "n": 2,
+   "cost_usd": 106.52,
+   "verdicts": {
+    "auto_with_gates": 2
+   },
+   "outcomes": {
+    "partial": 1,
+    "success": 1
+   }
+  },
+  "research_brief": {
+   "n": 2,
+   "cost_usd": 8.38,
+   "verdicts": {
+    "auto_with_gates": 1,
+    "full_auto": 1
+   },
+   "outcomes": {
+    "success": 2
+   }
+  },
+  "bug_hunt_fix": {
+   "n": 1,
+   "cost_usd": 135.4,
+   "verdicts": {
+    "needs_human_judgment": 1
+   },
+   "outcomes": {
+    "partial": 1
+   }
+  }
+ }
+}

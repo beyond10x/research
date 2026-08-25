@@ -1,0 +1,38 @@
+# AGENTS.md - research
+
+## What this repo is
+
+A one-shot empirical study of Claude Code transcripts, kept because the pipeline is re-runnable.
+The research question is fixed: **which human turns in an agent session are load-bearing, and
+which are ceremony that a deterministic flow or a second agent could take over?** Every design
+choice serves that question - do not generalise the pipeline into a transcript-analytics library.
+
+## Layout
+
+- `scripts/extract.py` - deterministic parse. No LLM calls, no judgement. If a number appears in
+  the report, it was produced here.
+- `scripts/taxonomy.py` - the closed label sets and JSON schemas. Single source of truth.
+- `scripts/classify_turns.py`, `scripts/classify_sessions.py` - LLM labelling, resumable.
+- `scripts/mine_workflows.py` - sequence mining. Deterministic.
+- `scripts/report.py` - rendering only. No new analysis.
+- `data/` - generated, gitignored. `out/` - generated report.
+
+## Invariants
+
+1. **Measurements and judgements stay separable.** Counts, costs, latencies and motifs come from
+   stages 1 and 4. Everything from stages 2-3 is an LLM opinion and must be labelled as such in
+   any output. Never blend the two in one table without a column saying which is which.
+2. **Stage 1 never calls a model.** It must run offline, and its output must be stable across runs
+   given the same manifest.
+3. **The corpus is frozen in `data/manifest.json`.** Re-picking silently would make two report
+   runs incomparable. Changing the corpus is an explicit `--refresh`.
+4. **Billing is per `message.id`.** Transcripts repeat an identical `usage` block on every record
+   belonging to one API response.
+5. **Costs are API list-price equivalents**, never described as spend.
+6. Label changes invalidate labels: `task clean-labels` before re-classifying.
+
+## Conventions
+
+- Task runner is `Taskfile.yml`. No Makefile.
+- Python 3.13 in `.venv`, managed with `uv`.
+- Stage scripts take `--limit` / `--workers` / `--backend` and are safe to interrupt.

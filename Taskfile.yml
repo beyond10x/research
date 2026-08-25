@@ -1,0 +1,55 @@
+version: '3'
+
+vars:
+  PY: '{{.TASKFILE_DIR}}/.venv/bin/python'
+  S: '{{.TASKFILE_DIR}}/scripts'
+
+tasks:
+  setup:
+    desc: Create the venv and install dependencies
+    cmds:
+      - uv venv --python 3.13 {{.TASKFILE_DIR}}/.venv
+      - uv pip install --python {{.PY}} anthropic
+    status:
+      - test -x {{.PY}}
+
+  extract:
+    desc: Stage 1 - parse transcripts into data/{sessions,turns,tool_events}.jsonl
+    cmds:
+      - '{{.PY}} {{.S}}/extract.py --limit {{.LIMIT | default 100}}'
+
+  classify-turns:
+    desc: Stage 2 - label every human turn (resumable)
+    deps: [setup]
+    cmds:
+      - '{{.PY}} {{.S}}/classify_turns.py --batch {{.BATCH | default 12}} --workers {{.WORKERS | default 6}}'
+
+  classify-sessions:
+    desc: Stage 3 - label every session (resumable)
+    deps: [setup]
+    cmds:
+      - '{{.PY}} {{.S}}/classify_sessions.py --workers {{.WORKERS | default 6}}'
+
+  mine:
+    desc: Stage 4 - mine operation and interaction motifs into out/mining.json
+    cmds:
+      - '{{.PY}} {{.S}}/mine_workflows.py'
+
+  report:
+    desc: Stage 5 - render out/REPORT.md
+    cmds:
+      - '{{.PY}} {{.S}}/report.py'
+
+  all:
+    desc: Full pipeline
+    cmds:
+      - task: extract
+      - task: classify-turns
+      - task: classify-sessions
+      - task: mine
+      - task: report
+
+  clean-labels:
+    desc: Drop LLM labels so the next run re-classifies from scratch
+    cmds:
+      - rm -f {{.TASKFILE_DIR}}/data/turn_labels.jsonl {{.TASKFILE_DIR}}/data/session_labels.jsonl
