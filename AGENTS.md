@@ -7,6 +7,16 @@ The research question is fixed: **which human turns in an agent session are load
 which are ceremony that a deterministic flow or a second agent could take over?** Every design
 choice serves that question - do not generalise the pipeline into a transcript-analytics library.
 
+## Serves
+
+The objectives of the collection this repository moves, by id from `atlas/ROADMAP.md` — the only
+cross-repository roadmap, and the page that says what each id means and which evidence closes it:
+
+- **O6 — self-improvement, built into all of it.** Which human turns in an agent session are load-bearing is the map of what the system should take over from the operator next.
+
+A change here that moves none of these is a question for the operator, not a task.
+`atlas/scripts/check-map.sh` fails a repository whose `AGENTS.md` names no objective.
+
 ## Layout
 
 - `scripts/extract.py` - deterministic parse. No LLM calls, no judgement. If a number appears in
