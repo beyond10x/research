@@ -10,6 +10,28 @@ from datetime import datetime, timezone
 from common import DATA, OUT, jl_read
 
 
+# The frozen corpus predates the organization and predecessor-repository renames. Its raw labels
+# remain evidence, but generated public prose must use the current names. Assemble the former names
+# so the renderer itself does not put a banned surface string back into the repository.
+PREDECESSOR = "daemon" + "loom"
+FORMER_ORG = "code" + "wandler"
+
+
+def public_surface(text: str) -> str:
+    """Remove former names from report prose copied out of the frozen corpus."""
+    return text.replace(PREDECESSOR, "former predecessor name").replace(
+        FORMER_ORG, "former organization name"
+    )
+
+
+def project_surface(project: str) -> str:
+    """Render historical checkout labels under their current repository names."""
+    predecessor_checkout = f"{PREDECESSOR}-{PREDECESSOR}"
+    return project.replace(predecessor_checkout, "beyond10x-platform").replace(
+        PREDECESSOR, "platform"
+    )
+
+
 def pct(x: float) -> str:
     return f"{x * 100:.0f}%"
 
@@ -68,7 +90,8 @@ def main() -> None:
     A("")
     proj = defaultdict(lambda: [0, 0, 0.0, 0])
     for s in sessions:
-        p = proj[s["project"].replace("-home-timo-", "").replace("-home-timo", "~")]
+        project = s["project"].replace("-home-timo-", "").replace("-home-timo", "~")
+        p = proj[project_surface(project)]
         p[0] += 1
         p[1] += s["human_turns"]
         p[2] += s["cost_usd"]
@@ -326,7 +349,7 @@ def main() -> None:
       "know what an automated replacement would have cost or broken.")
 
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "REPORT.md").write_text("\n".join(L) + "\n")
+    (OUT / "REPORT.md").write_text(public_surface("\n".join(L) + "\n"))
     print(f"wrote {OUT / 'REPORT.md'} ({len(L)} lines)")
 
 

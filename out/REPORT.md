@@ -1,6 +1,6 @@
 # Where does the human actually sit in the loop?
 
-*Corpus: 100 Claude Code sessions, 2026-08-11 to 2026-08-25. Generated 2026-08-25 13:09.*
+*Corpus: 100 Claude Code sessions, 2026-08-11 to 2026-08-25. Generated 2026-08-31 13:30.*
 
 ## 1. Corpus
 
@@ -24,13 +24,13 @@
 
 | project | sessions | human turns | tool calls | $ equiv |
 |---|---|---|---|---|
-| daemonloom-daemonloom | 24 | 432 | 11,230 | 3,786 |
+| beyond10x-platform | 24 | 432 | 11,230 | 3,786 |
 | babelforce-projects-company-brain | 25 | 561 | 10,686 | 3,027 |
 | projects-engineering-protocols | 7 | 226 | 5,438 | 1,756 |
 | beyond10x | 4 | 79 | 1,569 | 408 |
 | projects-flux-connectors | 1 | 17 | 533 | 287 |
 | projects-autodev | 4 | 57 | 879 | 234 |
-| daemonloom | 2 | 34 | 620 | 202 |
+| platform | 2 | 34 | 620 | 202 |
 | projects-flux-roadmap | 3 | 48 | 435 | 160 |
 | babelforce-projects-sbf-acd | 1 | 21 | 686 | 135 |
 | babelforce-projects-ai-selfhosted-inference | 3 | 44 | 374 | 73 |
@@ -557,7 +557,7 @@ Weighted by what each session cost to run:
 - **trigger**: Push webhook on any org repo's default branch, or nightly cron, where scripts/brand-sweep.sh --check reports a banned-identifier hit or check-markdown.py/check-links.py exits non-zero
 - **autonomy**: auto_with_gates
 - **removes**: Eliminates the continuation nudges ('continue here', 'just keep going', 'keep going', 'sleeping again?'), the bare approvals ('1+2+3+4 -> YES', 'makes sense, do it', 'implement it', 'okay, make it happen'), the status pings ('whats next, anything for me to decide?'), the dirty-tree questions ('what is changed in connectors?'), and the //clear + //model session-management turns. These carried no information the run needs and are not gates.
-- **preconditions**: A bot GitHub App installation (b10x-bot) with read/write on every org repo and a token available to the runner, so no personal token is used; A committed, machine-readable rename registry: old->new identifier map plus banned surface strings (e.g. 'daemonloom', 'codewandler', old org name), owned by atlas/scripts/brand-sweep.sh; scripts/check-markdown.py and each component's check-links.py present and exit 0 on the pre-sweep baseline; Per-workspace gate commands declared in Taskfile.yml (test/clippy/fmt/static.sh/release-process.sh/architecture fence) for substrate, zwirn, connectors; Git worktree creation allowed for merge-base baseline reproduction; Path allowlist declaring which trees the sweep may rewrite, and a denylist for secrets, deploy manifests, and external account config
+- **preconditions**: A bot GitHub App installation (b10x-bot) with read/write on every org repo and a token available to the runner, so no personal token is used; A committed, machine-readable rename registry: old->new identifier map plus banned surface strings (e.g. 'former predecessor name', 'former organization name', old org name), owned by atlas/scripts/brand-sweep.sh; scripts/check-markdown.py and each component's check-links.py present and exit 0 on the pre-sweep baseline; Per-workspace gate commands declared in Taskfile.yml (test/clippy/fmt/static.sh/release-process.sh/architecture fence) for substrate, zwirn, connectors; Git worktree creation allowed for merge-base baseline reproduction; Path allowlist declaring which trees the sweep may rewrite, and a denylist for secrets, deploy manifests, and external account config
 
 | # | step | kind | fails if |
 |---|---|---|---|
@@ -574,7 +574,7 @@ Weighted by what each session cost to run:
 | 11 | Push one branch per repo and open a PR carrying the diff, the hit inventory, per-file deltas, skipped files, and pre-existing-failure labels | deterministic | the bot cannot push or open a PR, or a commit is authored with an address other than the configured noreply address |
 | 12 | Emit the operator report: gate results table, retained-vs-removed inventory, repos skipped and why, and each open decision with the default that will be taken | deterministic | - |
 
-**Human still decides**: Supply or amend the rename registry: which names are banned at the surface, and what each maps to — a branding/taste call with no mechanical criterion (evidence: umbrella repo naming, 'daemonloom must not appear at the surface'); Authorize external-account actions: org rename, GitHub App creation/ownership transfer, bot write grants, repo visibility — owner-only web UI actions; Authorize destructive scope: deleting extracted source from the origin repo, deleting merged branches/worktrees, retiring scripts (dev.sh, probe-inference.sh); Approve production secret copy/rotation and cluster-side changes (vault, grafana, ingress ownership, registry endpoint) before any namespace teardown; Explicit commit/push authorization, and any instruction to land on main instead of a PR branch — required by standing policy
+**Human still decides**: Supply or amend the rename registry: which names are banned at the surface, and what each maps to — a branding/taste call with no mechanical criterion (evidence: umbrella repo naming, 'former predecessor name must not appear at the surface'); Authorize external-account actions: org rename, GitHub App creation/ownership transfer, bot write grants, repo visibility — owner-only web UI actions; Authorize destructive scope: deleting extracted source from the origin repo, deleting merged branches/worktrees, retiring scripts (dev.sh, probe-inference.sh); Approve production secret copy/rotation and cluster-side changes (vault, grafana, ingress ownership, registry endpoint) before any namespace teardown; Explicit commit/push authorization, and any instruction to land on main instead of a PR branch — required by standing policy
 
 **Blocked on**: No machine-readable rename registry exists today — the old->new map and the banned surface strings lived only in the human's head; the sweep cannot start without it being committed; GitHub org rename, App creation/transfer, bot permission grants and repo visibility require owner auth in a web browser; no API path the bot can take; Production secret copy/rotation (vault, grafana) needs credentials outside the repo plus an irreversible-action approval; No smoke/e2e gate exists to certify a migrated namespace before the old one is torn down; Cluster, registry and DNS facts (push to cluster IP / k8s DNS, not public DNS) are not encoded anywhere the sweep can read; the human corrected this by hand; No maturity or coupling metric in-repo, so extraction/ranking decisions ('which components are solid enough to extract') have no mechanical basis; Per-repo brand checks were removed in favour of one central script, but link checkers are still per-component with inconsistent names and entry points; Pre-existing-failure discrimination needs a full build at merge-base in a scratch worktree; that baseline is not cached or wired into any gate; GitHub Actions billing state blocked a release run mid-sweep; CI spend is external account state the workflow does not observe before pushing; Long runs stalled twice on model usage/rate limits and needed manual restart; there is no checkpoint/auto-resume for a partially applied org-wide sweep
 
