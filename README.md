@@ -58,3 +58,9 @@ batches already present in `data/*_labels.jsonl`, so an interrupted run costs no
   *are* the read/edit operations - dropping shell "plumbing" throws away most of the signal.
   `mine_workflows.py` classifies shell heads into operation classes instead.
 - Costs printed anywhere here are **API list-price equivalents**, not billed spend.
+
+<!-- b10x-docs:start -->
+## Documentation
+
+[Agent interaction research documentation](https://beyond10x.github.io/docs/research/) · [Start](https://beyond10x.github.io/) · [Ecosystem](https://beyond10x.github.io/ecosystem/) · [Impact](https://beyond10x.github.io/changes/) · [Releases](https://beyond10x.github.io/releases/)
+<!-- b10x-docs:end -->
