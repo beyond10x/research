@@ -1,0 +1,33 @@
+schema: b10x-docs/v2
+repository:
+  id: research
+  url: https://github.com/beyond10x/research
+surfaces:
+  - id: docs
+    name: Agent interaction research
+    summary: A reproducible empirical study of which human turns in agent sessions carry judgment and which can become deterministic or delegated workflows.
+    kind: research
+    canonicalUrl: https://github.com/beyond10x/research#readme
+    maturity: experimental
+    availability: published
+    discoverability: public
+    audiences: [evaluator, researcher, developer]
+    journeys: [understand, build-agents]
+    capabilities: [interaction-analysis, workflow-mining, agent-evaluation]
+    sections:
+      - {label: Run the study, url: https://github.com/beyond10x/research#run-it, kind: quickstart}
+      - {label: Pipeline stages, url: https://github.com/beyond10x/research#stages, kind: reference}
+      - {label: Source, url: https://github.com/beyond10x/research, kind: source}
+    relationships:
+      - {target: agentic-principles/docs, kind: informs, label: Grounds principles in observed agent sessions}
+      - {target: aep/docs, kind: informs, label: Identifies work that benefits from governed workflows}
+      - {target: agentplugins/docs, kind: informs, label: Identifies repeatable guidance and tool paths}
+    adoption:
+      label: Reproduce the deterministic stages
+      url: https://github.com/beyond10x/research#run-it
+      mode: source-build
+      estimatedMinutes: 10
+      prerequisites: [Python 3.13, uv, Task]
+      outcome: Extract a frozen local corpus and reproduce the measurement and workflow-mining stages without model calls.
+    accent: "#d3a6ff"
+    shell: {integration: portable, revision: 73aefe1ca268cc853ed38fb23478454496462a03}

@@ -1,0 +1,14 @@
+schema: b10x-change/v1
+id: research/public-surface-2026-09-01
+repository: research
+publishedAt: 2026-09-01T12:00:00Z
+title: Agent interaction research joins public discovery
+summary: The reproducible interaction study now publishes its question, deterministic pipeline, adoption path, and relationship to agent guidance through the shared b10x documentation contract.
+kind: research
+impact: significant
+source:
+  url: https://github.com/beyond10x/research
+journeys: [understand, build-agents]
+affectedSurfaces: [research/docs]
+relations:
+  - {target: surface:agentic-principles/docs, kind: enables, label: Grounds principles in observed sessions}
