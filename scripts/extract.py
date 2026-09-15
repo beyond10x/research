@@ -11,9 +11,11 @@ Nothing here calls an LLM; every field is read straight off the transcript.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
+import sys
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -35,15 +37,57 @@ def ts(rec) -> float:
         return 0.0
 
 
-def pick_sessions(limit: int, since: str | None, exclude: set[str], manifest: Path) -> list[Path]:
+def sha256_of(path: Path) -> str:
+    """Content identity of one transcript file."""
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def pick_sessions(limit: int, since: str | None, exclude: set[str], manifest: Path,
+                  allow_missing: bool = False) -> list[Path]:
     """Choose the N most recently touched top-level sessions.
 
     The transcript store is live - the session running this script keeps growing,
     and any concurrent session reshuffles the mtime order. The first run freezes
     its selection into data/manifest.json so every later stage sees the same corpus.
+
+    A frozen manifest is a claim about which inputs stage 1 read, so every listed
+    file must still be there: a missing one aborts the run naming the path, rather
+    than silently shrinking the corpus and making two report runs incomparable.
+    `--allow-missing` is the explicit opt-out. The manifest also records the sha256
+    of every picked file at pick time; because the transcripts keep growing after
+    they are picked, a digest that no longer matches is reported as drift on stderr
+    rather than refused - the run stays possible, but never silently comparable.
     """
     if manifest.exists():
-        return [Path(p) for p in json.loads(manifest.read_text())["files"] if Path(p).exists()]
+        man = json.loads(manifest.read_text())
+        listed = [Path(p) for p in man["files"]]
+        missing = [p for p in listed if not p.exists()]
+        if missing:
+            detail = "\n".join(f"  {p}" for p in missing)
+            head = f"{len(missing)} of {len(listed)} inputs in {manifest} no longer exist:"
+            if not allow_missing:
+                raise SystemExit(
+                    f"error: {head}\n{detail}\n"
+                    "re-run with --allow-missing to drop them from this run, "
+                    "or --refresh to re-pick the corpus"
+                )
+            print(f"warning: {head}\n{detail}\nproceeding without them (--allow-missing)",
+                  file=sys.stderr)
+        digests = man.get("sha256") or {}
+        drifted = [p for p in listed
+                   if p.exists() and str(p) in digests and digests[str(p)] != sha256_of(p)]
+        if drifted:
+            detail = "\n".join(f"  {p}" for p in drifted)
+            print(f"warning: {len(drifted)} input(s) changed since they were picked:\n{detail}",
+                  file=sys.stderr)
+        elif not digests:
+            print(f"warning: {manifest} records no sha256 digests; input identity unverified",
+                  file=sys.stderr)
+        return [p for p in listed if p.exists()]
     files = [p for p in PROJECTS.glob("*/*.jsonl") if p.parent.parent == PROJECTS and p.stem not in exclude]
     files.sort(key=lambda p: p.stat().st_mtime, reverse=True)
     if since:
@@ -56,6 +100,7 @@ def pick_sessions(limit: int, since: str | None, exclude: set[str], manifest: Pa
         "limit": limit,
         "excluded": sorted(exclude),
         "files": [str(p) for p in files],
+        "sha256": {str(p): sha256_of(p) for p in files},
     }, indent=1))
     return files
 
@@ -346,13 +391,15 @@ def main() -> None:
     ap.add_argument("--exclude", default=os.environ.get("CLAUDE_CODE_SESSION_ID", ""),
                     help="comma-separated session ids to skip (defaults to the live session)")
     ap.add_argument("--refresh", action="store_true", help="re-pick the corpus, discarding the manifest")
+    ap.add_argument("--allow-missing", action="store_true",
+                    help="drop manifest inputs that no longer exist instead of failing")
     args = ap.parse_args()
 
     manifest = DATA / "manifest.json"
     if args.refresh and manifest.exists():
         manifest.unlink()
     exclude = {s for s in args.exclude.split(",") if s}
-    files = pick_sessions(args.limit, args.since, exclude, manifest)
+    files = pick_sessions(args.limit, args.since, exclude, manifest, args.allow_missing)
     sessions, turns, events = [], [], []
     for p in files:
         s, t, e = parse_session(p)

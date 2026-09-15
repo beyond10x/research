@@ -50,7 +50,11 @@ batches already present in `data/*_labels.jsonl`, so an interrupted run costs no
   `extract.py` bills per `message.id`.
 - **The transcript store is live.** The session running the analysis grows while you read it, and
   any concurrent session reshuffles mtime order. Stage 1 freezes its file list into
-  `data/manifest.json`; delete it (or `--refresh`) to re-pick.
+  `data/manifest.json`, with the `sha256` of each file as it was picked; delete it (or
+  `--refresh`) to re-pick. A later run whose manifest names a file that no longer exists
+  **fails, naming the path** - a silently smaller corpus would make two reports
+  incomparable. `--allow-missing` drops those inputs on purpose; a file whose digest has
+  moved on is reported as drift on stderr, since live transcripts keep growing.
 - **`origin.kind == "human"` is the only reliable human-turn marker.** `promptSource` also carries
   `system` (task notifications), `sdk` (headless runs) and `queued`. Slash commands arrive as
   `<command-name>` records with no origin at all.

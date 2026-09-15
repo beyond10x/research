@@ -25,15 +25,15 @@
 | project | sessions | human turns | tool calls | $ equiv |
 |---|---|---|---|---|
 | beyond10x-platform | 24 | 432 | 11,230 | 3,786 |
-| babelforce-projects-company-brain | 25 | 561 | 10,686 | 3,027 |
+| internal-projects-company-brain | 25 | 561 | 10,686 | 3,027 |
 | projects-engineering-protocols | 7 | 226 | 5,438 | 1,756 |
 | beyond10x | 4 | 79 | 1,569 | 408 |
 | projects-flux-connectors | 1 | 17 | 533 | 287 |
 | projects-autodev | 4 | 57 | 879 | 234 |
 | platform | 2 | 34 | 620 | 202 |
 | projects-flux-roadmap | 3 | 48 | 435 | 160 |
-| babelforce-projects-sbf-acd | 1 | 21 | 686 | 135 |
-| babelforce-projects-ai-selfhosted-inference | 3 | 44 | 374 | 73 |
+| internal-projects-org-acd | 1 | 21 | 686 | 135 |
+| internal-projects-ai-selfhosted-inference | 3 | 44 | 374 | 73 |
 | projects-flux-exchange | 1 | 17 | 310 | 63 |
 | ~ | 10 | 17 | 341 | 29 |
 | beyond10x-metaharness | 1 | 3 | 95 | 8 |
@@ -498,7 +498,7 @@ Weighted by what each session cost to run:
 - **trigger**: push or merge-to-main touching .workflow/ specs, harness/driver crates, or skill/CLI surface in engineering-protocols|metaharness|harness-tools (plus a nightly cron tick to re-run the same matrix against the stored baseline)
 - **autonomy**: auto_with_gates
 - **removes**: Drops every resume_continue turn ('keep goig', 'continue with it', 'good, implement the next wave'), the bare approve_proceed acks ('1y 2y 3 yes', '5 + 4'), the meta_process turns (//clear, //compact, skill loading), the request_status turns ('whats the overall topic of this session'), and the request_verification turns ('make available under :3000') — the run serves its own artifacts and reports its own state. Keeps only scope, architecture/safety, release and policy decisions.
-- **preconditions**: arms matrix file checked in (raw-text, plugin, metaharness, own-harness) with endpoint + model per arm, instead of arms named turn by turn; credentials for the llm gateway (llm.dev.babelforce.com /v1/messages) available to the runner as env, with a positive balance check; fixture inputs and a scratch work dir under ~/.cache (never /tmp) writable by the runner; baseline transcript-metric file committed (skill-loaded, tool-called, max iterations/tokens, TTFT, cache hits, per-step latency, payload sizes); repo scope allowlist committed as a file (e.g. daemonloop excluded), not held only in the operator's head
+- **preconditions**: arms matrix file checked in (raw-text, plugin, metaharness, own-harness) with endpoint + model per arm, instead of arms named turn by turn; credentials for the llm gateway (llm.dev.<org-domain> /v1/messages) available to the runner as env, with a positive balance check; fixture inputs and a scratch work dir under ~/.cache (never /tmp) writable by the runner; baseline transcript-metric file committed (skill-loaded, tool-called, max iterations/tokens, TTFT, cache hits, per-step latency, payload sizes); repo scope allowlist committed as a file (e.g. daemonloop excluded), not held only in the operator's head
 
 | # | step | kind | fails if |
 |---|---|---|---|
@@ -603,7 +603,7 @@ Weighted by what each session cost to run:
 | 13 | Emit the run report: per-story table (gate result, reviewer verdicts, merged/bounced), remaining ready queue, and the default next action if nobody answers | deterministic | report omits any dispatched story |
 | 14 | Hold for push/publish authorization, then merge the wave into main, push, and cut/tag a release if the wave closes an epic | deterministic | local and remote HEADs disagree across the managed repos after push |
 
-**Human still decides**: Authorize the irreversible publish: push to origin/main and cut/tag/publish a release version (observed repeatedly: 'cut a new version and push to gh', release 0.4.0-ess-wave-4, v0.22.0); Approve raising the model tier or spend ceiling above the configured default for a wave (observed: 'use opus for them', $163 spend with no budget gate); Decide roadmap/priority questions the backlog does not encode: wave ordering, whether a new crate/repo is created, product/brand naming, architectural boundaries (e.g. modules must not touch http/sql directly, target repo layout and repo name); Supply out-of-machine facts the agent cannot read: which environment the fix is deployed to, which namespaces exist in the cluster, that a service token exists, that org auth was granted and where the token lives; Confirm the confidentiality scrub for anything published to a public repo (observed: babelforce-named examples found by the human, not the machine)
+**Human still decides**: Authorize the irreversible publish: push to origin/main and cut/tag/publish a release version (observed repeatedly: 'cut a new version and push to gh', release 0.4.0-ess-wave-4, v0.22.0); Approve raising the model tier or spend ceiling above the configured default for a wave (observed: 'use opus for them', $163 spend with no budget gate); Decide roadmap/priority questions the backlog does not encode: wave ordering, whether a new crate/repo is created, product/brand naming, architectural boundaries (e.g. modules must not touch http/sql directly, target repo layout and repo name); Supply out-of-machine facts the agent cannot read: which environment the fix is deployed to, which namespaces exist in the cluster, that a service token exists, that org auth was granted and where the token lives; Confirm the confidentiality scrub for anything published to a public repo (observed: examples named after the operator's organisation, found by the human, not the machine)
 
 **Blocked on**: No machine-readable acceptance criteria per story: wave scope was renegotiated conversationally every session, so nothing can decide 'done' without a human reading the diff; No path/repo guardrail on sub-agent writes - implementors wrote into the wrong repo with nothing stopping them; No unattended health gate for deploy-shaped work: 'pods healthy' and 'e2e green against latest.dev' were judged by a human eye, not an exit code; Org and cluster credentials still require human provisioning and re-auth; the grant itself (members_can_create_repositories) was flipped outside the machine; No spend/budget accounting hook - $163 in one archetype with no ceiling enforced before fan-out; No automatic sub-agent state restore after a session crash or quota cutoff; resuming a half-finished wave was a human instruction each time; Unowned uncommitted changes from other sessions/agents in shared trees block a clean pre-wave snapshot and cannot be safely discarded; Product naming, module inclusion/exclusion and architectural boundary rules are not codified anywhere the machine can read, so they resurface as corrections; No recorded golden samples for external-format drift, so a passing gate does not prove the integration still matches reality
 
@@ -679,7 +679,7 @@ Weighted by what each session cost to run:
 | # | step | kind | fails if |
 |---|---|---|---|
 | 1 | Resolve changed doc paths and full diff from the push ref (`git diff --name-only <before>..<after>`) | deterministic | no changed path matches the doc glob, or the ref is not fetchable |
-| 2 | Load posting-convention context: babelforce + flux-plugin skill config, slack-post.py channel map, permalink-form rules | deterministic | any referenced skill/config file is missing |
+| 2 | Load posting-convention context: the operator's organisation skill + flux-plugin skill config, slack-post.py channel map, permalink-form rules | deterministic | any referenced skill/config file is missing |
 | 3 | Extract mechanical repo facts the doc asserts (crate/module existence, module counts, file/stub sizes, script params) into facts.json via git ls-files + wc + parse | deterministic | extraction script exits non-zero |
 | 4 | Probe every external link in the doc: `gh repo view --json visibility` plus unauthenticated `curl -o /dev/null -w %{http_code}` | deterministic | any repo-hosted link returns != 200 unauthenticated, or `gh` reports visibility private |
 | 5 | Search Slack history for prior threads discussing this doc's topic and emit candidate crosslink targets with parent ts | deterministic | Slack search API call errors; zero hits is a valid empty result, not a failure |
