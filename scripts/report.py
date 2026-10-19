@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import json
+import re
 import statistics as st
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+from pathlib import Path
 
 from common import DATA, OUT, jl_read
 
@@ -30,6 +32,75 @@ def project_surface(project: str) -> str:
     return project.replace(predecessor_checkout, "beyond10x-platform").replace(
         PREDECESSOR, "platform"
     )
+
+
+# Project directories under ~/.claude/projects are checkout paths with every non-alphanumeric
+# character turned into "-". Only checkouts of public beyond10x repositories keep their name in
+# the report; everything else is a placeholder. An allowlist, so a new private name never leaks.
+PUBLIC_REPOS = frozenset("""
+aep aep-service agentic-principles agentide agent-platform agentplugins beyond10x.github.io canon
+codegate commission conductor connectors connectors-definitions control-plane cortex devcenter
+docs-system engineering-protocols entity-runtime epistemic-knowledge-runtime ess ess-ui-templates
+eventlog examples extensions gates getting-started governed-autonomy governor harness identity
+inference intake llm llm-gateway loom mandate mantle mcp metaharness repoview research sandbox
+secrets service-sdk substrate swarm takt thalamus todo-app-example tools uilab website widgets
+workflow workspace worktree
+""".split())
+CHECKOUT_PARENTS = ("", "beyond10x-", "projects-")
+WORKTREE_MARK = "--claude-worktrees-"
+SCRATCH_KINDS = (("plugin-eval", "plugin eval"), ("probe", "probe"))
+HOME_PREFIX = re.sub(r"[^A-Za-z0-9]", "-", str(Path.home()))
+
+
+def _encode(name: str) -> str:
+    return re.sub(r"[^A-Za-z0-9]", "-", name)
+
+
+def _public_repo(rel: str) -> str | None:
+    for name in PUBLIC_REPOS:
+        if any(rel == parent + _encode(name) for parent in CHECKOUT_PARENTS):
+            return name
+    return None
+
+
+def project_key(raw: str) -> tuple[str, str]:
+    """Classify a project directory: ("public"|"home"|"workspace"|"scratch:<kind>"|"private", key)."""
+    rel = raw[len(HOME_PREFIX):] if raw.startswith(HOME_PREFIX) else raw
+    rel = project_surface(rel.removeprefix("-"))
+    if not rel:
+        return ("home", "~")
+    if rel == "beyond10x":
+        return ("workspace", "beyond10x workspace")
+    if rel.startswith("-"):  # a hidden directory under home: scratch and tool state
+        kind = next((label for marker, label in SCRATCH_KINDS if marker in rel), "other")
+        return (f"scratch:{kind}", rel)
+    base, mark, _ = rel.partition(WORKTREE_MARK)
+    name = _public_repo(base)
+    if name:
+        return ("public", f"{name} worktree" if mark else name)
+    return ("private", rel)
+
+
+def project_labels(keys) -> dict:
+    """Name each (class, key) in the given order: public names as-is, the rest as placeholders."""
+    keys = list(keys)
+    scratch_total = Counter(c for c, _ in keys if c.startswith("scratch:"))
+    scratch_seen: Counter = Counter()
+    private_seen = 0
+    labels = {}
+    for cls, key in keys:
+        if cls == "private":
+            letter = chr(ord("A") + private_seen) if private_seen < 26 else str(private_seen + 1)
+            labels[(cls, key)] = f"private project {letter}"
+            private_seen += 1
+        elif cls.startswith("scratch:"):
+            kind = cls.split(":", 1)[1]
+            scratch_seen[cls] += 1
+            labels[(cls, key)] = (f"scratch: {kind} {scratch_seen[cls]}" if scratch_total[cls] > 1
+                                  else f"scratch: {kind}")
+        else:
+            labels[(cls, key)] = key
+    return labels
 
 
 def pct(x: float) -> str:
@@ -90,17 +161,17 @@ def main() -> None:
     A("")
     proj = defaultdict(lambda: [0, 0, 0.0, 0])
     for s in sessions:
-        project = s["project"].replace("-home-timo-", "").replace("-home-timo", "~")
-        p = proj[project_surface(project)]
+        p = proj[project_key(s["project"])]
         p[0] += 1
         p[1] += s["human_turns"]
         p[2] += s["cost_usd"]
         p[3] += s["tool_calls"]
+    proj_rows = sorted(proj.items(), key=lambda kv: -kv[1][2])
+    proj_label = project_labels(k for k, _ in proj_rows)
     A("<details><summary>by project</summary>")
     A("")
     A(table(["project", "sessions", "human turns", "tool calls", "$ equiv"],
-            [(k, v[0], v[1], f"{v[3]:,}", f"{v[2]:,.0f}")
-             for k, v in sorted(proj.items(), key=lambda kv: -kv[1][2])]))
+            [(proj_label[k], v[0], v[1], f"{v[3]:,}", f"{v[2]:,.0f}") for k, v in proj_rows]))
     A("")
     A("</details>")
     A("")
