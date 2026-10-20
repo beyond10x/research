@@ -25,7 +25,7 @@
 | project | sessions | human turns | tool calls | $ equiv |
 |---|---|---|---|---|
 | beyond10x-platform | 24 | 432 | 11,230 | 3,786 |
-| internal-projects-company-brain | 25 | 561 | 10,686 | 3,027 |
+| internal-projects-knowledge-store | 25 | 561 | 10,686 | 3,027 |
 | projects-engineering-protocols | 7 | 226 | 5,438 | 1,756 |
 | beyond10x | 4 | 79 | 1,569 | 408 |
 | projects-flux-connectors | 1 | 17 | 533 | 287 |
@@ -465,7 +465,7 @@ Weighted by what each session cost to run:
 - **trigger**: Channel/gate watcher fires: a new thread in a monitored incident channel (#sre, #dev-team, #<customer>-internal) matching customer/service/symptom patterns, OR a monitored pipeline/readiness gate flips red, OR a scheduled 08:00 re-check cron tick for an open verification
 - **autonomy**: auto_with_gates
 - **removes**: All routine initiation turns (//knowledge, //refresh, //workday, //brief, //clear and their <user> variants) become the trigger and step 2. All bare continuation turns ('continue', 'again', 'go on') are dropped — they carried no information and are not gates. Routine 'commit and push' after a clean round becomes step 17. Default-matching approvals ('1 yes 2 1y 3 no') are resolved by stated defaults. Restating known prior art ('lookup what I mean') is replaced by the brain-cache grep in step 3. Retained as gates only: irreversible prod writes, outward-facing posts, priority/policy calls and outside-the-machine facts.
-- **preconditions**: Slack channel watcher with read access to the monitored channels, emitting channel+ts (not a human-pasted permalink); Local company-brain/knowledge store cloned, with /knowledge, /refresh, /workday, /brief runnable headlessly and their gates (status-lean, verify-token, worklog-order, dirty-buckets) exit-coded; Read access to backend DB, ACD/NATS state, and the service-token endpoint able to mint an ephemeral manager token for the affected account owner; git clone access to config/chart repos (GitLab file API is not sufficient — it truncates at 65kb); kubectl/port-forward access to the affected cluster namespace plus homer for wire-level call records; A registered approver identity reachable for the two blocking gates (prod write, customer-facing post)
+- **preconditions**: Slack channel watcher with read access to the monitored channels, emitting channel+ts (not a human-pasted permalink); Local knowledge store cloned, with /knowledge, /refresh, /workday, /brief runnable headlessly and their gates (status-lean, verify-token, worklog-order, dirty-buckets) exit-coded; Read access to backend DB, ACD/NATS state, and the service-token endpoint able to mint an ephemeral manager token for the affected account owner; git clone access to config/chart repos (GitLab file API is not sufficient — it truncates at 65kb); kubectl/port-forward access to the affected cluster namespace plus homer for wire-level call records; A registered approver identity reachable for the two blocking gates (prod write, customer-facing post)
 
 | # | step | kind | fails if |
 |---|---|---|---|
