@@ -17,20 +17,26 @@ from common import DATA, OUT, jl_read
 # so the renderer itself does not put a banned surface string back into the repository.
 PREDECESSOR = "daemon" + "loom"
 FORMER_ORG = "code" + "wandler"
+FORMER_STORE = "company" + "-brain"
 
 
 def public_surface(text: str) -> str:
     """Remove former names from report prose copied out of the frozen corpus."""
-    return text.replace(PREDECESSOR, "former predecessor name").replace(
-        FORMER_ORG, "former organization name"
+    return (
+        text.replace(PREDECESSOR, "former predecessor name")
+        .replace(FORMER_ORG, "former organization name")
+        .replace(f"{FORMER_STORE}/knowledge store", "knowledge store")
+        .replace(FORMER_STORE, "predecessor knowledge store")
     )
 
 
 def project_surface(project: str) -> str:
     """Render historical checkout labels under their current repository names."""
     predecessor_checkout = f"{PREDECESSOR}-{PREDECESSOR}"
-    return project.replace(predecessor_checkout, "beyond10x-platform").replace(
-        PREDECESSOR, "platform"
+    return (
+        project.replace(predecessor_checkout, "beyond10x-platform")
+        .replace(PREDECESSOR, "platform")
+        .replace(FORMER_STORE, "knowledge-store")
     )
 
 
