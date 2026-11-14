@@ -26,6 +26,14 @@ A change here that moves none of these is a question for the operator, not a tas
 - `scripts/mine_workflows.py` - sequence mining. Deterministic.
 - `scripts/report.py` - rendering only. No new analysis.
 - `data/` - generated, gitignored. `out/` - generated report.
+- `literature/` - a second, separate loop, started by the operator on 2026-11-13: evidence from
+  papers for methods that make autonomous agentic coding work. It shares no code or data with the
+  transcript pipeline above. Read `literature/SCHEMA.md` before touching it. One file per paper in
+  `literature/papers/`, the aggregate in `literature/DISTILLATION.md`, candidates in
+  `literature/QUEUE.md`. A change to the schema's fields, sections or closed sets needs the operator's
+  approval; propose it under *Schema proposals* in `SCHEMA.md` and leave the files in the current
+  shape. Work in the primary checkout, not a worktree (operator, 2026-11-13). To continue the loop,
+  read `literature/HANDOFF.md`: the state at the last handoff and the caller's batch procedure.
 
 ## Invariants
 

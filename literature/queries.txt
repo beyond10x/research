@@ -1,0 +1,52 @@
+# arXiv search_query expressions, one per line. Run by literature/arxiv_search.py.
+# Each line is sorted by submission date, newest first. Add lines; do not edit old ones in place
+# without noting it in QUEUE.md, or two runs stop being comparable.
+
+# field studies of coding agents in real repositories
+abs:"coding agent" AND abs:"pull requests"
+abs:"coding agents" AND abs:empirical
+abs:"agentic coding"
+abs:"Claude Code"
+abs:"autonomous coding" AND abs:agent
+
+# controlled measurements of developer or agent outcomes
+abs:"randomized controlled trial" AND abs:AI AND abs:developers
+abs:"coding agent" AND abs:ablation
+abs:"SWE-bench" AND abs:scaffold
+
+# instruction and context files
+abs:"AGENTS.md"
+abs:"context files" AND abs:"coding agents"
+abs:"context engineering" AND abs:code AND abs:agent
+
+# tests, verification and review as feedback
+abs:"test-driven" AND abs:agent AND abs:LLM AND cat:cs.SE
+abs:"code review" AND abs:"coding agent"
+abs:"self-verification" AND abs:code AND abs:agent
+
+# specifications and planning
+abs:"spec-driven" AND abs:agent
+abs:"planning" AND abs:"coding agent"
+
+# multi-agent orchestration, memory, long-running work
+abs:"multi-agent" AND abs:"software engineering" AND abs:LLM AND abs:empirical
+abs:"long-horizon" AND abs:"software engineering" AND abs:agent
+abs:memory AND abs:"coding agent"
+abs:harness AND abs:"coding agent"
+
+# failures and human oversight
+abs:"failure" AND abs:"coding agents"
+abs:"human oversight" AND abs:"coding agent"
+abs:"self-improving" AND abs:"coding agent"
+
+# controlled trials with developers, added 2026-11-14 when the queue topic ran empty
+abs:"randomized controlled trial" AND abs:"coding" AND abs:"AI"
+abs:"randomized controlled trial" AND abs:Copilot
+abs:"controlled experiment" AND abs:developers AND abs:"AI assistant"
+abs:"controlled experiment" AND abs:"coding agent"
+abs:"field experiment" AND abs:"generative AI" AND abs:software AND abs:developers
+abs:randomized AND abs:"AI coding" AND abs:productivity
+abs:"between-subjects" AND abs:programming AND abs:LLM AND abs:participants
+abs:"user study" AND abs:"coding agent" AND abs:participants
+abs:"controlled study" AND abs:"AI coding assistant"
+abs:"randomly assigned" AND abs:programmers AND abs:AI
